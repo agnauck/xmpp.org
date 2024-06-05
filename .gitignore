@@ -12,6 +12,7 @@
 .hugo_build.lock
 .project
 .vagrant/
+.venv/
 .vscode/
 content/software/*
 data/compliance_suite.json
@@ -23,3 +24,4 @@ public/
 resources/
 static/doap/
 static/images/packages/
+themes/xmpp.org/static/js/xeplist.js

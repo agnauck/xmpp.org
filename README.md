@@ -42,7 +42,7 @@ To run a development server on your local machine, follow these basic steps.
 You need to have the following dependencies installed:
 
 * Hugo
-* Python 3
+* Python >=3.11
 * lua (>=5.2) and lua-expat
 
 The development server will automatically rebuild the page whenever a file is changed:
@@ -96,7 +96,7 @@ Hugo’s [quickstart](https://gohugo.io/getting-started/quick-start/) page is a 
 
 xmpp.org's theme makes use of:
 
-* [Bootstrap 5.2](https://getbootstrap.com/docs/5.2)
+* [Bootstrap 5.3](https://getbootstrap.com/docs/5.3)
 * [FontAwesome 6](https://fontawesome.com/v6/docs)
 
 The theme (layout and styling) can be customized in the [/themes/xmpp.org directory](https://github.com/xsf/xmpp.org/tree/master/themes/xmpp.org).

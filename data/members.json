@@ -48,12 +48,8 @@
     "members": [
         {
             "name": "Kim Alvefur",
-            "jids": ["zash@zash.se"]
-        },
-
-        {
-            "name": "Fannys Bampaloukas",
-            "jids": ["msavoritias@disroot.org"]
+            "jids": ["zash@zash.se"],
+            "roles": ["infrastructure"]
         },
 
         {
@@ -75,7 +71,7 @@
         {
             "name": "Jan-Carel Brand",
             "jids": ["jc@opkode.com"],
-            "roles": ["editor", "commteam"]
+            "roles": ["commteam"]
         },
 
         {
@@ -86,7 +82,8 @@
 
         {
             "name": "Dan Caseley",
-            "jids": ["fishbowler@xmpp.co", "dan.caseley@igniterealtime.org"]
+            "jids": ["fishbowler@xmpp.co", "dan.caseley@igniterealtime.org"],
+            "roles": ["council"]
         },
 
         {
@@ -105,14 +102,19 @@
         },
 
         {
+            "name": "Mario Sabatino",
+            "jids": ["mario@sabatino.pro"]
+        },
+
+        {
             "name": "Martin Dosch",
-            "jids": ["martin@mdosch.de"],
-            "roles": ["editor"]
+            "jids": ["martin@mdosch.de"]
         },
 
         {
             "name": "Nicola Fabiano",
-            "jids": ["nicola@nicfab.chat"]
+            "jids": ["nicola@nicfab.chat"],
+            "roles": ["board"]
         },
 
         {
@@ -126,13 +128,9 @@
         },
 
         {
-            "name": "Waqas Hussain",
-            "jids": ["waqas@prosody.im"]
-        },
-
-        {
             "name": "Stephen Paul Weber",
-            "jids": ["singpolyma@singpolyma.net"]
+            "jids": ["singpolyma@singpolyma.net"],
+            "roles": ["council", "infrastructure"]
         },
 
         {
@@ -156,7 +154,7 @@
         {
             "name": "Daniel Gultsch",
             "jids": ["daniel@gultsch.de"],
-            "roles": ["council", "scam"]
+            "roles": ["council", "scam", "editor"]
         },
 
         {
@@ -175,14 +173,19 @@
         },
 
         {
+            "name": "Trevor Krahn",
+            "jids": ["root@nicolosus.chat"],
+            "roles": ["infrastructure"]
+        },
+
+        {
             "name": "Joachim Lindborg",
             "jids": ["jabberjocke@jabber.org"]
         },
 
         {
             "name": "Georg Lukas",
-            "jids": ["georg@yax.im"],
-            "roles": ["council"]
+            "jids": ["georg@yax.im"]
         },
 
         {
@@ -192,19 +195,18 @@
 
         {
             "name": "Tobias Markmann",
-            "jids": ["tm@ayena.de"],
-            "roles": ["infrastructure"]
+            "jids": ["tm@ayena.de"]
+        },
+
+        {
+            "name": "Ali Mattouk",
+            "jids": ["xnamed@jix.im", "admin@jabber.eu.org"]
         },
 
         {
             "name": "Edward Maurer",
             "jids": ["emus@jabbers.one"],
             "roles": ["board", "commteam"]
-        },
-
-        {
-            "name": "Yvo Meeres",
-            "jids": ["eevvoor@jabber.fr"]
         },
 
         {
@@ -225,13 +227,18 @@
         },
 
         {
+            "name": "Mathieu Pasquet",
+            "jids": ["mathieui@mathieui.net"]
+        },
+
+        {
             "name": "Jérôme Poisson",
             "jids": ["goffi@jabber.fr"]
         },
 
         {
             "name": "Axel Reimer ",
-            "jids": ["axel@snikket.eversten.net"]
+            "jids": ["p42ity@eversten.me"]
         },
 
         {
@@ -241,25 +248,19 @@
 
         {
             "name": "Arc Riley",
-            "jids": ["arc@concordance.io"],
-            "roles": ["board"]
+            "jids": ["arc@jix.im"]
         },
 
         {
             "name": "Peter Saint-Andre",
             "jids": ["stpeter@jabber.org"],
-            "roles": ["treasurer", "registrar", "editor", "infrastructure", "board"]
-        },
-
-        {
-            "name": "Fabian Sauter",
-            "jids": ["com8@xmpp.uwpx.org"]
+            "roles": ["treasurer", "registrar", "infrastructure", "board"]
         },
 
         {
             "name": "Jonas Schäfer",
             "jids": ["jonas@wielicki.name"],
-            "roles": ["council", "editor"]
+            "roles": ["infrastructure"]
         },
 
         {
@@ -269,14 +270,7 @@
 
         {
             "name": "Florian Schmaus",
-            "jids": ["flo@geekplace.eu"],
-            "roles": ["editor"]
-        },
-
-        {
-            "name": "Jonathan Siegle",
-            "jids": ["siegle@jabber.org"],
-            "roles": ["infrastructure"]
+            "jids": ["flo@geekplace.eu"]
         },
 
         {

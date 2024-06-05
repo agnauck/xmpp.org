@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-'''
-Lint {clients,servers,libraries}.json
-'''
+"""
+Lint software.json
+"""
 from typing import Any
 
 import json
@@ -17,17 +17,14 @@ VALID_ENTRY_KEYS = {
 }
 
 
-def emit_violation(entry_name: str,
-                   message: str,
-                   warning: bool = False
-                   ) -> None:
-    '''Prints warnings and errors'''
+def emit_violation(entry_name: str, message: str, warning: bool = False) -> None:
+    """Prints warnings and errors"""
     prefix = "WARN" if warning else "ERROR"
-    print(f"{prefix}: entry {entry_name!r}: {message}", file=sys.stderr)
+    print(f"{prefix}: entry {entry_name!r}: {message}")
 
 
-def check_entries(entries: dict[str, Any]) -> int:
-    '''Checks entries for violations and returns their count'''
+def check_entries(entries: list[dict[str, Any]]) -> int:
+    """Checks entries for violations and returns their count"""
     violations = 0
     previous_name = None
     previous_key = None
@@ -37,7 +34,7 @@ def check_entries(entries: dict[str, Any]) -> int:
             emit_violation(
                 entry["name"],
                 f"should be placed in front of {previous_name!r} (all entries must be "
-                f"ordered alphabetically by case-folded name)"
+                f"ordered alphabetically by case-folded name)",
             )
             violations += 1
 
@@ -47,8 +44,7 @@ def check_entries(entries: dict[str, Any]) -> int:
 
         if unknown:
             emit_violation(
-                entry["name"],
-                f"has unknown keys: {', '.join(map(repr, unknown))}"
+                entry["name"], f'has unknown keys: {", ".join(map(repr, unknown))}'
             )
             violations += 1
 
@@ -56,21 +52,20 @@ def check_entries(entries: dict[str, Any]) -> int:
             emit_violation(
                 entry["name"],
                 f"misses the following required properties: "
-                f"{', '.join(map(repr, missing))} "
-                f"(see other entries for a reference)"
+                f'{", ".join(map(repr, missing))} '
+                f"(see other entries for a reference)",
             )
             violations += 1
 
         supported_platforms = entry.get("platforms", [])
 
-        sorted_platforms = sorted(supported_platforms,
-                                  key=lambda x: x.casefold())
+        sorted_platforms = sorted(supported_platforms, key=lambda x: x.casefold())
         if sorted_platforms != supported_platforms:
             emit_violation(
                 entry["name"],
                 f"platform order must be: "
-                f"{', '.join(map(repr, sorted_platforms))} "
-                f"(platforms must be ordered alphabetically)"
+                f'{", ".join(map(repr, sorted_platforms))} '
+                f"(platforms must be ordered alphabetically)",
             )
             violations += 1
 
@@ -81,12 +76,11 @@ def check_entries(entries: dict[str, Any]) -> int:
 
 if __name__ == "__main__":
     base_path = os.path.dirname(os.path.abspath(sys.argv[0]))
-    input_file = os.path.join(base_path, f"../data/software.json")
+    input_file = os.path.join(base_path, "../data/software.json")
     with open(input_file, "rb") as data_file:
         data = json.load(data_file)
 
     violations_count = check_entries(data)
     if violations_count:
-        print(f"Found {violations_count} severe violations. Please fix them.",
-              file=sys.stderr)
+        print(f"Found {violations_count} severe violations. Please fix them.")
         sys.exit(1)

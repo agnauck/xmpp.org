@@ -1,14 +1,24 @@
-<div class="footer-sponsors">
+<div class="footer-sponsors text-center p-5">
     <h4>The <a href="/about/xmpp-standards-foundation/">XSF</a> is generously sponsored by:</h4>
     <ul>
-      <li><a href="/sponsors/processone/" target="_blank"><img src="/images/logos/process-one.png" alt="ProcessOne"></a></li>
-      <li><a href="/sponsors/tigase/" target="_blank"><img src="/images/logos/tigase.png" alt="Tigase"></a></li>
-      <li><a href="/sponsors/us-secure-hosting-center/" target="_blank"><img src="/images/logos/usshc.png" alt="US Secure Hosting Center"></a></li>
+        <li><a href="/sponsors/erlang-solutions/"><img src="/images/logos/erlang-solutions.png" alt="Erlang Solutions" class="sponsor-logo"></a></li>
+        <li><a href="/sponsors/processone/"><img src="/images/logos/process-one.png" alt="ProcessOne" class="sponsor-logo"></a></li>
+        <li><a href="/sponsors/tigase/"><img src="/images/logos/tigase.png" alt="Tigase" class="sponsor-logo"></a></li>
+        <li><a href="/sponsors/tygrys/"><img src="/images/logos/tygrys.png" alt="Tygrys" class="sponsor-logo"></a></li>
+        <li><a href="/sponsors/us-secure-hosting-center/"><img src="/images/logos/usshc.png" alt="US Secure Hosting Center" class="sponsor-logo"></a></li>
     </ul>
+    <a href="/community/sponsorship/" class="p-2 border rounded text-secondary">Become a sponsor</a>
 </div>
 <div class="footer-github">
-    <p><i class="fab fa-github fa-lg"></i><a href="https://github.com/xsf/xmpp.org" target="blank_"></a>&nbsp;&nbsp;&nbsp;This site is organized in the open on GitHub. <a href="https://github.com/xsf/xmpp.org" target="blank_">Suggest changes</a>.</p>
     <p>The xmpp.org domain was generously donated by <a href="https://opendomain.org" target="blank_">OpenDomain.org</a>.</p>
+    <p class="mt-3">
+        <i class="fab fa-github fa-lg"></i>
+        This site is organized in the open on <a href="https://github.com/xsf/xmpp.org" target="blank_">GitHub</a>.
+        {{- partial "edit-on-github" . -}}
+    </p>
+    <p class="mt-1 text-center text-body-tertiary small">
+        Last website build:&nbsp;{{- time.Now | time.Format ":date_medium" -}}&nbsp;({{- time.Now.UTC.Hour -}}:{{- time.Now.UTC.Minute -}}&nbsp;UTC)
+    </p>
 </div>
 <footer class="footer mt-auto py-3 bg-dark">
     <div class="container">
@@ -41,10 +51,10 @@
                         <a href="/community/">Community</a>
                     </li>
                     <li>
-                        <a href="/blog/">Blog</a>
+                        <a href="/blog/">News</a>
                     </li>
                     <li>
-                        <a href="/newsletter/">Newsletter</a>
+                        <a href="/about/press-kit/">Press Kit</a>
                     </li>
                     <li>
                         <a href="/contact/">Contact</a>
@@ -60,6 +70,9 @@
                         <a href="https://twitter.com/xmpp" target="blank_">@Twitter</a>
                     </li>
                     <li>
+                        <a href="https://www.linkedin.com/company/xmpp-standards-foundation" target="blank_">@LinkedIn</a>
+                    </li>
+                    <li>
                         <a href="https://www.youtube.com/channel/UCf3Kq2ElJDFQhYDdjn18RuA" target="blank_">@Youtube</a>
                     </li>
                 </ul>
@@ -68,8 +81,9 @@
     </div>
 </footer>
 <script src="{{- "js/bootstrap.bundle.min.js" | absURL -}}"></script>
-<script src="{{- "js/extensions-table.js" | absURL -}}"></script>
+<script src="{{- "js/bootstrap-theme-switcher.js" | absURL -}}"></script>
 <script src="{{- "js/sorttable.js" | absURL -}}"></script>
+<script src="{{- "js/xeplist.js" | absURL -}}"></script>
 <script src="{{- "js/scripts.js" | absURL -}}"></script>
 {{- if ( .Params.mermaid ) -}}
     <script async src="{{- "js/mermaid.min.js" | absURL -}}"></script>

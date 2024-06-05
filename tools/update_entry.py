@@ -1,29 +1,28 @@
 #!/usr/bin/env python3
+
+"""
+Tool for maintaining software list entries
+"""
 from typing import Any
 
 import argparse
-import difflib
 import copy
+import difflib
 import json
 import sys
 
 
 def json_as_lines(data: Any) -> list[str]:
+    """Returns a json file as newline terminated strings"""
     return [
-        line+"\n"
-        for line in json.dumps(
-                data,
-                indent=4,
-                sort_keys=True
-        ).split("\n")
+        line + "\n" for line in json.dumps(data, indent=4, sort_keys=True).split("\n")
     ]
 
 
-def sortkey(x: str) -> str:
-    return x.casefold()
-
-
 def main():
+    """
+    Main logic of update_entry tool
+    """
     parser = argparse.ArgumentParser(
         description="Modify a software entry in the software list."
     )
@@ -73,14 +72,14 @@ def main():
         dest="ask",
         default=True,
         action="store_false",
-        help="Do not ask for confirmation before applying changes. "
+        help="Do not ask for confirmation before applying changes. ",
     )
 
     args = parser.parse_args()
 
-    with open("../data/software.json") as f:
-        filename = f.name
-        data = json.load(f)
+    with open("../data/software.json", encoding="utf-8") as software_file:
+        filename = software_file.name
+        data = json.load(software_file)
 
     name_map = {item["name"]: item for item in data}
 
@@ -88,11 +87,11 @@ def main():
         item = name_map[args.name]
     except KeyError:
         if args.name is not None:
-            print("Error: no such project: {!r}".format(args.name),
-                  file=sys.stderr)
+            print(f"Error: no such project: {args.name!r}", file=sys.stderr)
         print("Hint: the following projects exist:")
         print(
-            "    ", "\n    ".join(sorted(name_map.keys())),
+            "    ",
+            "\n    ".join(sorted(name_map.keys())),
             sep="",
             file=sys.stderr,
         )
@@ -108,13 +107,10 @@ def main():
             pass
         else:
             print(
-                "Error: new name {!r} already in use by a project".format(
-                    args.new_name
-                ),
+                f"Error: new name {args.new_name!r} already in use by a project",
                 file=sys.stderr,
             )
-            print("Hint: the existing project looks like this:",
-                  file=sys.stderr)
+            print("Hint: the existing project looks like this:", file=sys.stderr)
             json.dump(existing, sys.stderr, indent=4, sort_keys=True)
             print(file=sys.stderr)
             sys.exit(2)
@@ -128,10 +124,7 @@ def main():
         item["doap"] = args.new_doap or None
 
     if args.new_platforms is not None:
-        item["platforms"] = list(set(
-            platform.strip()
-            for platform in args.new_platforms
-        ))
+        item["platforms"] = list({platform.strip() for platform in args.new_platforms})
 
     item["platforms"].sort(key=lambda x: x.casefold())
 
@@ -164,9 +157,9 @@ def main():
 
     data.sort(key=lambda x: x["name"].casefold())
 
-    with open(filename, "w") as f:
-        json.dump(data, f, indent=4, sort_keys=True)
-        f.write("\n")
+    with open(filename, "w", encoding="utf-8") as software_file:
+        json.dump(data, software_file, indent=4, sort_keys=True)
+        software_file.write("\n")
 
 
 if __name__ == "__main__":

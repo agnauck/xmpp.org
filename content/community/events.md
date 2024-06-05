@@ -5,48 +5,27 @@ aliases:
     - "/community/events.html"
 ---
 
-## XMPP Summits
-
-The XSF organizes periodic in-person gatherings in order to coordinate high-bandwidth conversations, interop testing, brainstorming and planning, and to conduct other XSF business face-to-face. Attending a summit for the first time or considering to do so? This may be helpful: [XMPP summits for dummies](https://wiki.xmpp.org/web/XMPP_summits_for_dummies).
-
-You can get a list of past Summits [on the wiki](https://wiki.xmpp.org/web/Category:Events).
-The next Summit will happen next year.
-
-## Conferences and Talks
-
-No conference at the moment. You can get a list of past conferences [on the
-wiki](https://wiki.xmpp.org/web/Category:Events).
-
-[XMPP Office Hours](https://wiki.xmpp.org/web/XMPP_Office_Hours) are offered on a weekly manner and offer everyone to talk, present and discuss their XMPP topic, project or development. Previous talks can be found in our [YouTube channel](https://www.youtube.com/channel/UCf3Kq2ElJDFQhYDdjn18RuA)!
-
-## Meetups
+## Regular Meetups
 
 * [Berlin](https://xmpp-meetup.in-berlin.de/)
 * [Dresden](https://wiki.xmpp.org/web/Meetups/Dresden)
+* [XMPP Italian happy hour](https://mobilizon.it/events/207032cc-b7bf-48c2-9394-f5cce684608f)
+* [XMPP Office Hours](https://wiki.xmpp.org/web/XMPP_Office_Hours) are offered in a weekly manner and offer everyone to talk, present and discuss their XMPP topic, project or development. Previous talks can be found in our [YouTube channel](https://www.youtube.com/channel/UCf3Kq2ElJDFQhYDdjn18RuA).
 
-## Sprints
+### Upcoming Events
 
-Sprints are contributor events that are being organized by members of the
-community, to improve the ecosystem.
+Events come and go at a speed that is sometimes hard to keep track of. Do you know of an event not listed here? Do you spot out-of-date information? Can you improve this page? Please, [submit a pull request](https://github.com/xsf/xmpp.org/edit/master/data/events.json). Sprints are contributor events organized by members of the community. They focus on improving the XMPP ecosystem. You can find detailed information about sprints on the [wiki page](https://wiki.xmpp.org/web/Sprints), as well as a list of [past conferences](https://wiki.xmpp.org/web/Category:Events).
 
-You can find more detailed information about sprints on the [wiki
-page](https://wiki.xmpp.org/web/Sprints).
+{{< events type="upcoming" >}}
 
-### Upcoming
+## XMPP Summits
 
-Events come and go at a speed that is sometimes hard to keep track of. Do you know of an event not listed here? Did you spot out-of-date information? Can you otherwise improve on this page? Please, [submit a pull request!](https://github.com/xsf/xmpp.org/edit/master/content/community/events.md)
+The XSF organizes periodic in-person gatherings in order to coordinate high-bandwidth conversations, interop testing, brainstorming and planning, and to conduct other XSF business face-to-face. Attending a summit for the first time or considering to do so? This may be helpful: [XMPP summits for dummies](https://wiki.xmpp.org/web/XMPP_summits_for_dummies). You can get a list of past Summits [on the wiki](https://wiki.xmpp.org/web/Category:Events).
 
-### Past
+## XMPP Standards Foundation Meetings
 
-* [Toulouse, April 18-19th, 2020](https://wiki.xmpp.org/web/Sprints/2020_April_Toulouse)
-* [Berlin, March 26-29th, 2020](https://wiki.xmpp.org/web/Sprints/2020_March_Berlin)
-* [Duesseldorf, March 7-8th, 2020](https://wiki.xmpp.org/web/Sprints/2020_March_Duesseldorf)
-* [Leipzig, December 27-30th, 2019](https://wiki.xmpp.org/web/Sprints/2019_December_Leipzig)
-* [Stockholm, September 2019](https://wiki.xmpp.org/web/Sprints/2019_September_Stockholm)
-* [Lyon, July 2019](https://wiki.xmpp.org/web/Sprints/2019_July_Lyon)
-* [The Hague, June 7-9th, 2019](https://wiki.xmpp.org/web/Sprints/2019_June_The_Hague)
-* [Karlsruhe, May 30th - June 2nd, 2019](https://wiki.xmpp.org/web/Sprints/2019_May_Karlsruhe) (at GPN19)
-* [Berlin, March 30-31st, 2019](https://wiki.xmpp.org/web/Sprints/2019_March_Berlin)
-* [Brussels, January 30th, 2019](https://wiki.xmpp.org/web/Sprints/2019_January_Brussels) (around FOSDEM)
-* [Dusseldorf, November 17-18th, 2018](https://wiki.xmpp.org/web/Sprints/2018_November_Dusseldorf)
-* [Cambridge, August 18-19th, 2018](https://wiki.xmpp.org/web/Sprints/2018_August_Cambridge)
+Please reach out to the [XMPP Standards Foundation](https://xmpp.org/about/xmpp-standards-foundation/) to attend their public meetings.
+
+### Past Events
+
+{{< events type="past" >}}

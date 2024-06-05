@@ -10,11 +10,16 @@
     <div class="hero">
       <h1>{{- .Param "subtitle" -}}</h1>
       <h3>Tried and tested. Independent. Privacy-focused.</h3>
-      <a type="button" class="btn btn-primary btn-lg px-4" href="/getting-started/">Get Started</a>
+      <a type="button" class="btn btn-primary btn-lg px-4" href="/getting-started/">Join Us On XMPP</a>
       <a type="button" class="btn btn-secondary btn-lg m-2" href="/extensions/">Specifications</a>
     </div>
 </div>
-<div class="container px-4 py-5">
+<div class="container px-4 pt-4 pb-5">
+  <div class="pb-5 text-center lead">
+    You can use any <a href="/software">XMPP-compatible software</a> to join the XMPP messaging network.
+    <br>
+    Developers can integrate their own software with XMPP using our <a href="/extensions">published specifications</a>.
+  </div>
     <h2 class="text-center fw-bold">XMPP is the open standard for messaging and presence</h2>
     <div class="row gx-4 pt-5 row-cols-1 row-cols-md-2 row-cols-lg-4">
       <div class="col text-center feature-home">
@@ -52,5 +57,51 @@
     <h5 class="text-center">
       <a href="/software/">Find the tools you need »</a>
     </h5>
+ </div>
+ <div class="row py-5 mx-5 justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <h3 class="text-center pb-2"><a href="/community/events/">Upcoming Events</a></h3>
+    {{- $events_counter := 0 -}}
+    {{- range .Site.Data.events -}}
+      {{- $start_date := .date_start | time -}}
+      {{- if gt $start_date now -}}
+        {{- $events_counter = add $events_counter 1 -}}
+        <div class="card text-bg-tertiary mb-3">
+          <h5 class="card-header">
+            {{- .type -}}
+          </h5>
+          <div class="card-body">
+            <div class="mb-1">
+              <i class="fa-solid fa-location-dot text-body-tertiary"></i>&nbsp;
+              {{- .location -}}
+            </div>
+            <a href="{{- .url -}}">
+              {{- if .title -}}
+                  {{- .title -}}&nbsp;-&nbsp;
+              {{- end -}}
+              {{- if .date_end -}}
+                  {{- $end_date := .date_end | time -}}
+                  {{- if eq (dateFormat "January" $start_date) (dateFormat "January" $end_date) -}}
+                      {{- dateFormat "January 2" $start_date -}}-{{- dateFormat "2, 2006" $end_date -}}
+                  {{- else -}}
+                      {{- dateFormat "January 2" $start_date -}}-{{- dateFormat "January 2, 2006" $end_date -}}
+                  {{- end -}}
+              {{- else -}}
+                  {{- dateFormat "January 2, 2006" $start_date -}}
+              {{- end -}}
+            </a>
+            {{- if .desc -}}
+              &nbsp;({{- .desc -}})
+            {{- end -}}
+          </div>
+        </div>
+      {{- end -}}
+    {{- end -}}
+    {{- if eq $events_counter 0 -}}
+        <div class="text-center text-muted">
+          <span>No upcoming events.</span>
+        </div>
+    {{- end -}}
+  </div>
  </div>
 {{- end -}}

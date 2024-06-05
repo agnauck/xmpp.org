@@ -9,6 +9,7 @@ from http import HTTPStatus
 
 import requests
 from bs4 import BeautifulSoup
+from bs4 import Tag
 
 
 def process(input_url: str) -> None:
@@ -23,13 +24,14 @@ def process(input_url: str) -> None:
 
     article = soup.find("article", {"role": "main"})
     if article is None:
-        print("Could not find post's article element.")
+        print("Could not find post’s article element.")
         return
 
-    # Remove social share box, since it uses FontAwesome icons
-    # (not available in emails)
+    assert isinstance(article, Tag)
+    # Remove social share box, since it uses FontAwesome icons,
+    # which are not available in emails
     social_share = article.find("section", {"id": "social-share"})
-    if social_share is not None:
+    if isinstance(social_share, Tag):
         social_share.decompose()
 
     # Add body padding
@@ -37,11 +39,14 @@ def process(input_url: str) -> None:
 
     # Change color and text decoration of heading
     header_box = article.find("div", {"class": "header-internal"})
+    assert isinstance(header_box, Tag)
     link = header_box.find("a")
+    assert isinstance(link, Tag)
     link["style"] = "text-decoration: none; color: #333;"
 
     # Change post meta color
-    meta_span = article.find("span", {"class": "post-meta"})
+    meta_span = header_box.find("span", {"class": "text-body-secondary"})
+    assert isinstance(meta_span, Tag)
     meta_span["style"] = "color: gray;"
 
     # Improve rendering of figures
@@ -53,8 +58,8 @@ def process(input_url: str) -> None:
     with open("newsletter-mail.html", "w", encoding="utf-8") as html_file:
         html_file.write(str(article))
     print(
-        "All done! Please copy and paste contents from 'newsletter-mail.html' "
-        "into your e-mail client of choice (use 'Insert HTML')."
+        'All done! Please copy and paste contents from "newsletter-mail.html" '
+        'into your e-mail client of choice (use "Insert HTML").'
     )
 
 
